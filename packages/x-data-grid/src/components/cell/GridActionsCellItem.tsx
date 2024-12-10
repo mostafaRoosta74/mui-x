@@ -25,7 +25,7 @@ export type GridActionsCellItemProps = GridActionsCellItemCommonProps &
       } & Omit<MenuItemProps, 'component'>)
   );
 
-const GridActionsCellItem = React.forwardRef<HTMLButtonElement, GridActionsCellItemProps>(
+const GridActionsCellItem = React.forwardRef<HTMLElement, GridActionsCellItemProps>(
   (props, ref) => {
     const rootProps = useGridRootProps();
 
@@ -38,7 +38,7 @@ const GridActionsCellItem = React.forwardRef<HTMLButtonElement, GridActionsCellI
 
       return (
         <rootProps.slots.baseIconButton
-          ref={ref}
+          ref={ref as React.RefObject<HTMLButtonElement>}
           size="small"
           role="menuitem"
           aria-label={label}
